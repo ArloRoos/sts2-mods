@@ -3,8 +3,8 @@
     <PropertyGroup>
         <TargetFramework>net9.0</TargetFramework>
         <ImplicitUsings>true</ImplicitUsings>
-        <Nullable>enable</Nullable> <!--Makes code analysis regarding null values stricter.-->
-        <Publicize>False</Publicize> <!--Allows access to originally private/protected members but may (unlikely to) cause errors.-->
+        <Nullable>disable</Nullable> <!--Makes code analysis regarding null values stricter.-->
+        <Publicize>true</Publicize> <!--Allows access to originally private/protected members but may (unlikely to) cause errors.-->
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         
         <AppOutputBase>$(MSBuildProjectDirectory)\</AppOutputBase>
@@ -31,7 +31,7 @@
 
     <ItemGroup Condition="$(Publicize)">
         <PackageReference Include="Krafs.Publicizer" Version="2.3.0" PrivateAssets="All"/>
-        <Publicize Include="sts2" IncludeVirtualMembers="false" IncludeCompilerGeneratedMembers="false" />
+        <Publicize Include="sts2" IncludeVirtualMembers="true" IncludeCompilerGeneratedMembers="true" />
     </ItemGroup>
 
     <ItemGroup>
